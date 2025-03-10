@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Write to Your MP</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 20px; max-width:600px;">
+
+<h2>Write to Your MP</h2>
+
+<form action="https://actionnetwork.org/letters/61b91c7af5173ea05b3bc914ca0ee114" method="POST">
+
+  <label>Your Postcode (to find your MP):</label><br>
+  <input type="text" name="postcode" required placeholder="Enter your postcode" style="width:100%; padding:8px; margin-bottom:10px;"><br>
+
+  <label>Your Name:</label><br>
+  <input type="text" name="name" required placeholder="Your Name" style="width:100%; padding:8px; margin-bottom:10px;"><br>
+
+  <label>Your Email:</label><br>
+  <input type="email" name="email" required placeholder="Your Email" style="width:100%; padding:8px; margin-bottom:10px;"><br>
+
+  <label>Select a letter:</label><br>
+  <select id="letter-selector" style="width:100%; padding:8px; margin-bottom:10px;">
+    <option value="letter1">Letter on Social Care Charges</option>
+    <option value="letter2">Letter on Disability Support</option>
+    <option value="letter3">Letter on Welfare Reform</option>
+  </select><br>
+
+  <label>Edit your letter:</label><br>
+  <textarea id="editable-letter" name="body" rows="10" style="width:100%; padding:8px;"></textarea><br><br>
+
+  <button type="submit" style="padding:10px 20px; font-size:16px;">Send Letter to MP</button>
+
+</form>
+
+<script>
+const letters = {
+  letter1: `Dear [MP Name],
+
+I am deeply concerned about the barriers created by social care charges for disabled people, older people, and carers. The current system is inefficient and unjust, negatively impacting vulnerable communities.
+
+Please push for reform urgently.
+
+Sincerely,`,
+
+  letter2: `Dear [MP Name],
+
+Disabled individuals need better support, yet recent welfare benefit cuts are having severe impacts. I urge you to support policies that protect essential disability benefits.
+
+Best regards,`,
+
+  letter3: `Dear [MP Name],
+
+Welfare reform is urgently needed, but not at the cost of vulnerable communities. We need humane, fair, and economically sensible approaches to welfare spending.
+
+Thank you,`
+};
+
+document.getElementById('editable-letter').value = letters.letter1;
+
+document.getElementById('letter-selector').addEventListener('change', function() {
+  document.getElementById('editable-letter').value = letters[this.value];
+});
+</script>
+
+</body>
+</html>
